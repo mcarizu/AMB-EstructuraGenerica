@@ -26,6 +26,7 @@ int main()
     eGen_mostrarListadoConBorrados(listadoGenerico,CANTIDAD);
     getchar();
 
+    printf("\n\n");
 
     return 0;
 }

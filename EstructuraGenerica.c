@@ -162,3 +162,50 @@ int eGen_alta(eGenerica  listado[],int limite)
     }
     return retorno;
 }
+int eGen_ordenar(eGenerica listado[],int limite,int orden)
+{
+    eGenerica listadoAux;
+    int i,j;
+    //int filtro=0;
+
+
+    for(i=0; i < limite - 1; i++)
+    {
+        if(listado[i].estado == OCUPADO)
+        {
+            continue;
+        }
+        for(j=i+1; j < limite; j++)
+        {
+            if(listado[j].estado == LIBRE)
+            {
+                continue;
+            }
+            if(strcmp(listado[j].nombre,listado[i].nombre)<0)
+            {
+                listadoAux = listado[j];
+                listado[j] = listado[i];
+                listado[i] = listadoAux;
+            }
+            else if(strcmp(listado[j].nombre,listado[i].nombre) == 0)
+            {
+                if(listado[i].idGenerica > listado[j].idGenerica)
+                {
+                    listadoAux = listado[j];
+                    listado[j] = listado[i];
+                    listado[i] = listadoAux;
+                }
+            }
+        }
+
+    }
+}
+
+int eGen_baja(eGenerica listado[] ,int limite, int id)
+{
+  id = eGen_buscarLugarLibre(listado,limite);
+  if(id>=0){
+    printf("\n %s - %d - %d\n",parametro.nombre,parametro.idGenerica,parametro.estado);
+  }
+
+}
